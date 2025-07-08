@@ -29,10 +29,10 @@ const educationHistory = [
 
 
 const skills = [
-  { name: 'Vue.js', level: 'Mahir' },
-  { name: 'Tailwind CSS', level: 'Mahir' },
+  { name: 'Vue.js', level: 'Menengah' },
+  { name: 'Tailwind CSS', level: 'Menengah' },
   { name: 'Node.js', level: 'Menengah' },
-  { name: 'JavaScript', level: 'Mahir' },
+  { name: 'JavaScript', level: 'Menengah' },
 
 ];
 
@@ -40,11 +40,12 @@ const skills = [
 const projects = [
   {
     title: 'Jogja-Inside',
-    image: 'https://via.placeholder.com/500x300?text=Jogja+Inside',
-    description: 'Website rekomendasi destinasi wisata di Yogyakarta dengan fitur login admin, manajemen user & destinasi.',
+    image: 'https://i.imgur.com/b9Sa20M.jpeg',
+    description: 'Website rekomendasi destinasi wisata di Yogyakarta...',
     tech: ['Vue.js', 'Laravel', 'MySQL'],
-    link: 'https://github.com/RamadhanZaki/Jogja_Inside' // atau link deploy kamu
-  },
+    link: 'https://github.com/RamadhanZaki/Jogja_Inside'
+  }
+
 
 ];
 

@@ -1,17 +1,16 @@
-// src/directives/animateOnScroll.js
-const animatedScrollObserver = new IntersectionObserver(
-  (entries, observer) => {
+const animatedScrollObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-  if (entry.isIntersecting) {
-  entry.target.classList.add('enter');
-  observer.unobserve(entry.target);
-  }
+    if (entry.isIntersecting) {
+      entry.target.classList.add('enter');
+    } else {
+      entry.target.classList.remove('enter'); // agar bisa animasi ulang saat masuk lagi
+    }
   });
-  }
-  );
-  export default {
+});
+
+export default {
   mounted(el) {
-  el.classList.add('before-enter');
-  animatedScrollObserver.observe(el);
-  }
-  }
+    el.classList.add('before-enter');
+    animatedScrollObserver.observe(el);
+  },
+};

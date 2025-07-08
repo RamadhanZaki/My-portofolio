@@ -3,7 +3,7 @@ import SectionTitle from './SectionTitle.vue'
 </script>
 
 <template>
-  <footer id="kontak" class="py-20 bg-gray-800 text-white">
+  <footer id="kontak" class="py-8 bg-gray-800 text-white">
     <div class="container mx-auto px-6 text-center">
       <SectionTitle title="Hubungi Saya" />
       <p class="text-xl text-gray-300 mb-8">
@@ -18,8 +18,6 @@ import SectionTitle from './SectionTitle.vue'
       >
         Kirim Email
       </a>
-
-
 
       <div class="flex justify-center space-x-6 mb-8">
         <a

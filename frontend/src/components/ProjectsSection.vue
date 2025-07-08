@@ -1,35 +1,38 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import { ref } from 'vue'
 import SectionTitle from './SectionTitle.vue'
 
-// State data proyek
-const projects = ref([])
-
-onMounted(async () => {
-  try {
-    const res = await axios.get('http://localhost:3000/api/projects')
-    projects.value = res.data
-  } catch (error) {
-    console.error('Gagal mengambil data proyek:', error)
+// Data lokal, bukan dari backend
+const projects = ref([
+  {
+    title: 'Jogja-Inside',
+    image: 'https://i.imgur.com/LbHCxyy.jpeg',
+    description: 'Website rekomendasi destinasi wisata di Yogyakarta...',
+    tech: ['Vue.js', 'Laravel', 'MySQL'],
+    link: 'https://github.com/RamadhanZaki/Jogja_Inside'
   }
-})
+])
 </script>
 
 <template>
   <section id="proyek" class="py-20 bg-white">
     <div class="container mx-auto px-6">
       <SectionTitle title="Proyek Unggulan" />
-      <div class="grid md:grid-cols-2 gap-12">
+      <div
+        :class="[
+          'grid gap-12',
+          projects.length === 1 ? 'justify-center' : 'md:grid-cols-2'
+        ]"
+      >
         <div
           v-for="project in projects"
           :key="project.title"
-          class="bg-gray-50 rounded-lg shadow-lg overflow-hidden"
+          class="bg-gray-50 rounded-lg shadow-lg overflow-hidden max-w-lg w-full"
         >
           <img
             :src="project.image"
             alt="Gambar Proyek"
-            class="w-full h-56 object-cover"
+            class="w-full h-72 object-cover "
           />
           <div class="p-6">
             <h3 class="text-2xl font-bold text-gray-800 mb-2">
