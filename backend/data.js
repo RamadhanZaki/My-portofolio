@@ -1,31 +1,51 @@
 // backend/data.js
-const educationHistory = [ /* ...data... */ ];
-const skills = [ /* ...data... */ ];
-const projects = [ /* ...data... */ ];
+
+const educationHistory = [
+  {
+    id: 1,
+    period: '2023 - Sekarang',
+    institution: 'Universitas Amikom Yogyakarta',
+    major: 'S1 - Teknik Informatika'
+  },
+  {
+    id: 2,
+    period: '2018 - 2021',
+    institution: 'SMK Negeri 2 Wonosari',
+    major: 'Teknik Instalasi Tenaga Listrik'
+  },
+  {
+    id: 3,
+    period: '2014 - 2017',
+    institution: 'SMP Negeri 1 Patuk',
+    major: 'SMP'
+  },
+  {
+    id: 4,
+    period: '2008 - 2014',
+    institution: 'SDIT Salsabila 3 Banguntapan',
+    major: 'SD'
+  },
+];
+
+
+const skills = [
+  { name: 'Vue.js', level: 'Mahir' },
+  { name: 'Tailwind CSS', level: 'Mahir' },
+  { name: 'Node.js', level: 'Menengah' },
+  { name: 'JavaScript', level: 'Mahir' },
+
+];
+
+
+const projects = [
+  {
+    title: 'Jogja-Inside',
+    image: 'https://via.placeholder.com/500x300?text=Jogja+Inside',
+    description: 'Website rekomendasi destinasi wisata di Yogyakarta dengan fitur login admin, manajemen user & destinasi.',
+    tech: ['Vue.js', 'Laravel', 'MySQL'],
+    link: 'https://github.com/RamadhanZaki/Jogja_Inside' // atau link deploy kamu
+  },
+
+];
+
 module.exports = { educationHistory, skills, projects };
-• Buat file backend/index.js dengan kode server berikut:
-JavaScript
-// backend/index.js
-const express = require('express');
-const cors = require('cors');
-const { educationHistory, skills, projects } = require('./data');
-
-const app = express();
-const PORT = 3000;
-
-app.use(cors());
-app.use(express.json());
-
-app.get('/api/education', (req, res) => res.json(educationHistory));
-app.get('/api/skills', (req, res) => res.json(skills));
-app.get('/api/projects', (req, res) => res.json(projects));
-
-app.listen(PORT, () => {
-console.log(` Server backend berjalan di http://localhost:${PORT}`);
-});
-• Buka backend/package.json dan atur bagian scripts:
-JSON
-"scripts": {
-"start": "node index.js",
-"dev": "nodemon index.js"
-},
