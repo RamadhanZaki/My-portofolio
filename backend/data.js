@@ -40,12 +40,18 @@ const skills = [
 const projects = [
   {
     title: 'Jogja-Inside',
-    image: 'https://i.imgur.com/b9Sa20M.jpeg',
+    image: 'https://i.imgur.com/6jB8gOo.jpeg',
     description: 'Website rekomendasi destinasi wisata di Yogyakarta...',
     tech: ['Vue.js', 'Laravel', 'MySQL'],
     link: 'https://github.com/RamadhanZaki/Jogja_Inside'
-  }
-
+  },
+  {
+    title: 'My Portofolio',
+    image: 'https://i.imgur.com/Uox4S21.jpeg',
+    description: 'Portofolio',
+    tech: ['Vue.js', 'Laravel'],
+    link: 'https://github.com/RamadhanZaki/My-portofolio'
+  },
 
 ];
 

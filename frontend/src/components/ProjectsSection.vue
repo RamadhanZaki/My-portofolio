@@ -1,23 +1,26 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import axios from 'axios'
 import SectionTitle from './SectionTitle.vue'
 
-// Data lokal, bukan dari backend
-const projects = ref([
-  {
-    title: 'Jogja-Inside',
-    image: 'https://i.imgur.com/LbHCxyy.jpeg',
-    description: 'Website rekomendasi destinasi wisata di Yogyakarta...',
-    tech: ['Vue.js', 'Laravel', 'MySQL'],
-    link: 'https://github.com/RamadhanZaki/Jogja_Inside'
+// State kosong untuk data dari backend
+const projects = ref([])
+
+onMounted(async () => {
+  try {
+    const res = await axios.get('http://localhost:3000/api/projects')
+    projects.value = res.data
+  } catch (err) {
+    console.error('Gagal memuat data proyek:', err)
   }
-])
+})
 </script>
 
 <template>
   <section id="proyek" class="py-20 bg-white">
     <div class="container mx-auto px-6">
       <SectionTitle title="Proyek Unggulan" />
+
       <div
         :class="[
           'grid gap-12',
@@ -32,7 +35,8 @@ const projects = ref([
           <img
             :src="project.image"
             alt="Gambar Proyek"
-            class="w-full h-72 object-cover "
+            loading="lazy"
+            class="w-full aspect-video object-contain bg-white"
           />
           <div class="p-6">
             <h3 class="text-2xl font-bold text-gray-800 mb-2">

@@ -30,7 +30,7 @@ onMounted(async () => {
         <div
           v-for="(edu, index) in educationHistory"
           :key="edu.id"
-          class="mb-8 flex justify-between items-center w-full"
+          class="mb-8 flex flex-col md:flex-row justify-between items-center w-full"
         >
           <!-- Kiri -->
           <div v-if="index % 2 === 0" class="w-full flex">
