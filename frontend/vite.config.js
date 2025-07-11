@@ -8,9 +8,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
+    }
   },
   build: {
-    outDir: 'dist' // ⬅️ Pastikan ini agar Vercel bisa menemukan output
+    outDir: 'dist',           // ⬅️ wajib ada agar hasil build ke frontend/dist
+    emptyOutDir: true
   }
 })
