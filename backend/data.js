@@ -29,30 +29,64 @@ const educationHistory = [
 
 
 const skills = [
-  { name: 'Vue.js', level: 'Menengah' },
-  { name: 'Tailwind CSS', level: 'Menengah' },
-  { name: 'Node.js', level: 'Menengah' },
-  { name: 'JavaScript', level: 'Menengah' },
-
+ {
+    "name": "HTML",
+    "level": 70,
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+  },
+  {
+    "name": "CSS",
+    "level": 80,
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+  },
+  {
+    "name": "JavaScript",
+    "level": 70,
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+  },
+  {
+    "name": "Vue.js",
+    "level": 80,
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+  },
+  {
+    "name": "Node.js",
+    "level": 70,
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+  },
+  {
+    "name": "Express.js",
+    "level": 60,
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+  },
+  {
+    "name": "MySQL",
+    "level": 70,
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+  },
+  {
+    "name": "Figma",
+    "level": 75,
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+  }
 ];
 
 
 const projects = [
   {
     title: 'Jogja-Inside',
-    image: 'https://i.imgur.com/6jB8gOo.jpeg',
-    description: 'Website rekomendasi destinasi wisata di Yogyakarta...',
+    image: 'https://i.imgur.com/dVmlREU.jpeg',
+    description: 'Website rekomendasi destinasi wisata di Yogyakarta dengan fitur login admin, manajemen user & destinasi.',
     tech: ['Vue.js', 'Laravel', 'MySQL'],
-    link: 'https://github.com/RamadhanZaki/Jogja_Inside'
+    link: 'https://github.com/RamadhanZaki/Jogja_Inside' // atau link deploy kamu
   },
   {
-    title: 'My Portofolio',
-    image: 'https://i.imgur.com/Uox4S21.jpeg',
-    description: 'Portofolio',
-    tech: ['Vue.js', 'Laravel'],
-    link: 'https://github.com/RamadhanZaki/My-portofolio'
+    title: 'Smart Egg Incubator',
+    image: 'https://raw.githubusercontent.com/EgidiusDicky/egg-incubator-esp32/refs/heads/main/assets/egg-incubator1.jpg',
+    description: 'Website rekomendasi destinasi wisata di Yogyakarta dengan fitur login admin, manajemen user & destinasi.',
+    tech: ['C++', 'Esp-32'],
+    link: 'https://github.com/EgidiusDicky/egg-incubator-esp32' // atau link deploy kamu
   },
-
 ];
 
 module.exports = { educationHistory, skills, projects };

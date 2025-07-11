@@ -3,51 +3,46 @@ import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import SectionTitle from './SectionTitle.vue'
 
-// State kosong untuk data dari backend
+// State data proyek
 const projects = ref([])
 
 onMounted(async () => {
   try {
     const res = await axios.get('http://localhost:3000/api/projects')
     projects.value = res.data
-  } catch (err) {
-    console.error('Gagal memuat data proyek:', err)
+  } catch (error) {
+    console.error('Gagal mengambil data proyek:', error)
   }
 })
 </script>
 
 <template>
-  <section id="proyek" class="py-20 bg-white">
+  <section id="proyek" class="py-20 bg-white dark:bg-gray-900">
     <div class="container mx-auto px-6">
-      <SectionTitle title="Proyek Unggulan" />
-
-      <div
-        :class="[
-          'grid gap-12',
-          projects.length === 1 ? 'justify-center' : 'md:grid-cols-2'
-        ]"
-      >
+      <SectionTitle title="Project Unggulan" />
+      <div class="grid md:grid-cols-2 gap-12">
         <div
           v-for="project in projects"
           :key="project.title"
-          class="bg-gray-50 rounded-lg shadow-lg overflow-hidden max-w-lg w-full"
+          class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-colors duration-300"
         >
           <img
             :src="project.image"
             alt="Gambar Proyek"
-            loading="lazy"
-            class="w-full aspect-video object-contain bg-white"
+            class="w-full h-56 object-cover"
           />
           <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">
               {{ project.title }}
             </h3>
-            <p class="text-gray-600 mb-4">{{ project.description }}</p>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              {{ project.description }}
+            </p>
             <div class="mb-4">
               <span
                 v-for="t in project.tech"
                 :key="t"
-                class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold mr-2 mb-2 px-2.5 py-0.5 rounded-full"
+                class="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm font-semibold mr-2 mb-2 px-2.5 py-0.5 rounded-full"
               >
                 {{ t }}
               </span>
@@ -56,7 +51,7 @@ onMounted(async () => {
               :href="project.link"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-blue-600 font-semibold hover:underline"
+              class="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
             >
               Lihat Detail &rarr;
             </a>
