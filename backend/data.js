@@ -83,7 +83,7 @@ const projects = [
   {
     title: 'Smart Egg Incubator',
     image: 'https://raw.githubusercontent.com/EgidiusDicky/egg-incubator-esp32/refs/heads/main/assets/egg-incubator1.jpg',
-    description: 'Website rekomendasi destinasi wisata di Yogyakarta dengan fitur login admin, manajemen user & destinasi.',
+    description: 'Smart Inkubator ESP32 adalah solusi inovatif untuk kebutuhan pemeliharaan telur atau objek sensitif lainnya yang memerlukan pengaturan suhu dan kelembapan yang presisi. Ditenagai oleh ESP32.',
     tech: ['C++', 'Esp-32'],
     link: 'https://github.com/EgidiusDicky/egg-incubator-esp32' // atau link deploy kamu
   },
