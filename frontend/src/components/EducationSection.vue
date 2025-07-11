@@ -9,7 +9,7 @@ const educationHistory = ref([])
 // Ambil data saat komponen dimount
 onMounted(async () => {
   try {
-    const res = await axios.get('/api/education.js')
+    const res = await axios.get('/api/education')
     educationHistory.value = res.data
   } catch (err) {
     console.error('Gagal mengambil data pendidikan:', err)

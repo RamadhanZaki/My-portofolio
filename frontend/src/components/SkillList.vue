@@ -7,7 +7,7 @@ const skills = ref([])
 
 onMounted(async () => {
   try {
-    const res = await axios.get('/api/skills.js')
+    const res = await axios.get('/api/skills')
     skills.value = res.data
   } catch (err) {
     console.error('Gagal mengambil data skills:', err)
