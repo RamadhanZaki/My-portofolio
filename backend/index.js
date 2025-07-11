@@ -8,4 +8,4 @@ app.get('/api/education', (req, res) => res.json(educationHistory));
 app.get('/api/skills', (req, res) => res.json(skills));
 app.get('/api/projects', (req, res) => res.json(projects));
 
-module.exports = app; // penting agar bisa digunakan Vercel
+module.exports = app; 
