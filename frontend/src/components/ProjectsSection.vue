@@ -6,9 +6,13 @@ import SectionTitle from './SectionTitle.vue'
 // State data proyek
 const projects = ref([])
 
+const API_URL = import.meta.env.PROD
+  ? '/api/projects'
+  : 'http://localhost:3000/api/projects'
+
 onMounted(async () => {
   try {
-    const res = await axios.get('/api/projects')
+    const res = await axios.get(API_URL)
     projects.value = res.data
   } catch (error) {
     console.error('Gagal mengambil data proyek:', error)
@@ -16,10 +20,11 @@ onMounted(async () => {
 })
 </script>
 
+
 <template>
   <section id="proyek" class="py-20 bg-white dark:bg-gray-900">
     <div class="container mx-auto px-6">
-      <SectionTitle title="Project Unggulan" />
+      <SectionTitle title="Proyek Unggulan" />
       <div class="grid md:grid-cols-2 gap-12">
         <div
           v-for="project in projects"

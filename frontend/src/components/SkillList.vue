@@ -5,15 +5,20 @@ import SectionTitle from './SectionTitle.vue'
 
 const skills = ref([])
 
+const API_URL = import.meta.env.PROD
+  ? '/api/skills'
+  : 'http://localhost:3000/api/skills'
+
 onMounted(async () => {
   try {
-    const res = await axios.get('/api/skills')
+    const res = await axios.get(API_URL)
     skills.value = res.data
   } catch (err) {
     console.error('Gagal mengambil data skills:', err)
   }
 })
 </script>
+
 
 <template>
   <section id="skill" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">

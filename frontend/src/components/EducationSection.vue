@@ -3,13 +3,17 @@ import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import SectionTitle from './SectionTitle.vue'
 
-// State untuk data dari backend
+// State data pendidikan dari backend
 const educationHistory = ref([])
 
-// Ambil data saat komponen dimount
+// Atur endpoint tergantung environment
+const API_URL = import.meta.env.PROD
+  ? '/api/education'
+  : 'http://localhost:3000/api/education'
+
 onMounted(async () => {
   try {
-    const res = await axios.get('/api/education')
+    const res = await axios.get(API_URL)
     educationHistory.value = res.data
   } catch (err) {
     console.error('Gagal mengambil data pendidikan:', err)
@@ -18,17 +22,16 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section id="pendidikan" class="py-20 bg-white dark:bg-gray-900">
+  <section id="pendidikan" class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
     <div class="container mx-auto px-6">
       <SectionTitle title="Riwayat Pendidikan" />
+
       <div class="relative">
-        <!-- Garis vertikal tengah -->
         <div
           class="absolute h-full border-r-2 border-gray-300 dark:border-gray-600"
           style="left: 50%;"
         ></div>
 
-        <!-- Timeline items -->
         <div
           v-for="(edu, index) in educationHistory"
           :key="edu.id"
@@ -41,7 +44,7 @@ onMounted(async () => {
               <h3 class="text-2xl font-bold text-gray-800 dark:text-white">
                 {{ edu.institution }}
               </h3>
-              <p class="text-gray-600 dark:text-gray-400">{{ edu.major }}</p>
+              <p class="text-gray-600 dark:text-gray-300">{{ edu.major }}</p>
             </div>
             <div class="w-1/2 flex justify-start">
               <div class="w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full z-10"></div>
@@ -58,7 +61,7 @@ onMounted(async () => {
               <h3 class="text-2xl font-bold text-gray-800 dark:text-white">
                 {{ edu.institution }}
               </h3>
-              <p class="text-gray-600 dark:text-gray-400">{{ edu.major }}</p>
+              <p class="text-gray-600 dark:text-gray-300">{{ edu.major }}</p>
             </div>
           </div>
         </div>
